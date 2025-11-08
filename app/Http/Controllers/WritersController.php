@@ -21,6 +21,6 @@ class WritersController extends Controller
             ['name' => 'Michael Tan', 'specialty' => 'Fullstack Developer', 'image' => 'images/avatar/man.png'],
         ];
 
-        return view('pages.writers', compact('writers'));
+        return view('pages.writer.writers', compact('writers'));
     }
 }
