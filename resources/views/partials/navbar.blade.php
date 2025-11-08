@@ -16,7 +16,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-center gap-3">
         <li class="nav-item">
-          <a class="nav-link fw-semibold text-dark" href="/">Home</a>
+          <a class="nav-link fw-semibold text-dark" href="{{ route('home') }}">Home</a>
         </li>
 
         <!-- Dropdown -->
@@ -27,12 +27,12 @@
           </a>
           <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="categoryDropdown">
             <li><a class="dropdown-item" href="/category/data-science">Data Science</a></li>
-            <li><a class="dropdown-item" href="/category/software-engineering">Software Engineering</a></li>
+            <li><a class="dropdown-item" href="/category/network-security">Network Security</a></li>
           </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link fw-semibold text-dark" href="/writers">Writers</a>
+          <a class="nav-link fw-semibold text-dark" href="{{ route('writers') }}">Writers</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fw-semibold text-dark" href="/about">About Us</a>
