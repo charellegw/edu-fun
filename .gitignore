@@ -28,3 +28,10 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+
+.DS_Store
+Thumbs.db
+/bootstrap/cache/*.php
+/.idea
+/.vscode
+
