@@ -36,7 +36,7 @@
                             {{ $post->created_at->format('d M Y') }} | By: {{ $post->writer->name }}
                         </p>
                         <p class="mb-3 line-clamp-3">{{ $post->short_description }}</p>
-                        <a href="{{ route('categories.show', $post->id) }}" class="btn btn-dark px-4 py-2 rounded-pill fw-semibold">Read more...</a>
+                        <a href="{{ route('posts.show', $post->id) }}" class="btn btn-dark px-4 py-2 rounded-pill fw-semibold">Read more...</a>
                     </div>
                 </div>
             </div>

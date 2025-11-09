@@ -53,8 +53,8 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link fw-semibold {{ Route::is('popular') ? 'text-primary' : 'text-dark' }}" 
-              href="{{ route('popular') }}">
+            <a class="nav-link fw-semibold {{ Route::is('popular.index') ? 'text-primary' : 'text-dark' }}" 
+              href="{{ route('popular.index') }}">
                 Popular
             </a>
         </li>
