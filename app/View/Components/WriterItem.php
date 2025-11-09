@@ -8,12 +8,14 @@ use Illuminate\Contracts\View\View;
 
 class WriterItem extends Component
 {
+    public $id;
     public $name;
     public $specialty;
     public $image;
 
-    public function __construct($name, $specialty, $image)
+    public function __construct($id, $name, $specialty, $image)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->specialty = $specialty;
         $this->image = $image;

@@ -4,23 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Writer;
+use App\Models\Post;
 
 class WritersController extends Controller
 {
     public function index()
     {
-        $writers = [
-            ['name' => 'John Doe', 'specialty' => 'Spesialis Data Science', 'image' => 'images/avatar/man.png'],
-            ['name' => 'Jane Smith', 'specialty' => 'AI Researcher', 'image' => 'images/avatar/woman.png'],
-            ['name' => 'Michael Tan', 'specialty' => 'Fullstack Developer', 'image' => 'images/avatar/man.png'],
-            ['name' => 'John Doe', 'specialty' => 'Spesialis Data Science', 'image' => 'images/avatar/man.png'],
-            ['name' => 'Jane Smith', 'specialty' => 'AI Researcher', 'image' => 'images/avatar/woman.png'],
-            ['name' => 'Michael Tan', 'specialty' => 'Fullstack Developer', 'image' => 'images/avatar/man.png'],
-            ['name' => 'John Doe', 'specialty' => 'Spesialis Data Science', 'image' => 'images/avatar/man.png'],
-            ['name' => 'Jane Smith', 'specialty' => 'AI Researcher', 'image' => 'images/avatar/woman.png'],
-            ['name' => 'Michael Tan', 'specialty' => 'Fullstack Developer', 'image' => 'images/avatar/man.png'],
-        ];
-
+        
+        $writers = Writer::all();
         return view('pages.writer.writers', compact('writers'));
+    }
+    
+    // public function show($id)
+    // {
+    //     $writer = Writer::with('posts')->findOrFail($id);
+    //     return view('pages.writer.writer_detail', compact('writers'));
+    // }
+
+    public function show($id)
+    {
+        $writer = Writer::findOrFail($id); // ambil writer berdasarkan id
+        $articles = Post::where('writer_id', $writer->id)->with('category')->get(); // ambil semua post writer
+
+        return view('pages.writer.writer_detail', compact('writer', 'articles'));
     }
 }

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
   <div class="container">
     <!-- Logo -->
     <a class="navbar-brand d-flex align-items-center fw-bold" href="/">
@@ -16,31 +16,49 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-center gap-3">
         <li class="nav-item">
-          <a class="nav-link fw-semibold text-dark" href="{{ route('home') }}">Home</a>
+            <a class="nav-link fw-semibold {{ Route::is('home') ? 'text-primary' : 'text-dark' }}" 
+              href="{{ route('home') }}">
+                Home
+            </a>
         </li>
 
-        <!-- Dropdown -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fw-semibold text-primary" href="#" id="categoryDropdown"
-            role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Category
-          </a>
-          <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="categoryDropdown">
-            <li><a class="dropdown-item" href="/category/data-science">Data Science</a></li>
-            <li><a class="dropdown-item" href="/category/network-security">Network Security</a></li>
-          </ul>
+            <a class="nav-link dropdown-toggle fw-semibold {{ Route::is('categories.*') ? 'text-primary' : 'text-dark' }}" 
+              href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Category
+            </a>
+            <ul class="dropdown-menu border-0 shadow-sm" aria-labelledby="categoryDropdown">
+                @foreach($allCategories as $category)
+                    <li>
+                        <a class="dropdown-item" href="{{ route('categories.show', $category->id) }}">
+                            {{ $category->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link fw-semibold text-dark" href="{{ route('writers') }}">Writers</a>
+            <a class="nav-link fw-semibold {{ Route::is('writers') ? 'text-primary' : 'text-dark' }}" 
+              href="{{ route('writers') }}">
+                Writers
+            </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link fw-semibold text-dark" href="/about">About Us</a>
+            <a class="nav-link fw-semibold {{ Route::is('about') ? 'text-primary' : 'text-dark' }}" 
+              href="{{ route('about') }}">
+                About Us
+            </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link fw-semibold text-dark" href="/popular">Popular</a>
+            <a class="nav-link fw-semibold {{ Route::is('popular') ? 'text-primary' : 'text-dark' }}" 
+              href="{{ route('popular') }}">
+                Popular
+            </a>
         </li>
-      </ul>
+    </ul>
     </div>
   </div>
 </nav>

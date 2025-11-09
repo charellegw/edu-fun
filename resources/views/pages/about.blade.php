@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="d-flex justify-content-center align-items-center vh-100 text-center">
+<div class="d-flex justify-content-center align-items-center text-center" style="min-height: 100vh;">
     <div class="w-75">
         <h1 class="mb-4">About EduFun</h1>
 
